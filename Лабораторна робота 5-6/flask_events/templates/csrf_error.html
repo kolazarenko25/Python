@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Помилка CSRF{% endblock %}
+
+{% block content %}
+  <h1>Запит відхилено (400)</h1>
+  <p class="error">Перевірка CSRF-токена не пройдена: {{ reason }}</p>
+  <p><a href="{{ url_for('register') }}">Повернутися до форми</a></p>
+{% endblock %}

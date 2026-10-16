@@ -1,0 +1,26 @@
+{# Макрос уніфікованого рендерингу поля форми з міткою та помилками #}
+{% macro render_field(field) %}
+  <div class="form-group{% if field.errors %} has-error{% endif %}">
+    {{ field.label }}
+    {{ field(class_="form-control") }}
+    {% for error in field.errors %}
+      <p class="error">{{ error }}</p>
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{# Макрос картки заходу — приклад можливості Jinja2, якої немає в DTL #}
+{% macro event_card(event) %}
+  <li class="card">
+    <h3>{{ event.title }}</h3>
+    <p class="meta">{{ event.date.strftime('%d.%m.%Y') }} · {{ event.place }}</p>
+    <p>{{ event.description | truncate(80) }}</p>
+    <p class="meta">
+      {% if event.seats is not none %}
+        Вільних місць: {{ event.seats - event.taken }} із {{ event.seats }}
+      {% else %}
+        Місць: не обмежено
+      {% endif %}
+    </p>
+  </li>
+{% endmacro %}

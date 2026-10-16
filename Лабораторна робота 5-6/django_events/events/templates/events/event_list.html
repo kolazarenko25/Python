@@ -1,0 +1,29 @@
+{% extends "events/base.html" %}
+
+{% block title %}Заходи{% endblock %}
+
+{% block content %}
+  <h1>{{ page_title }}</h1>
+  <p>Знайдено заходів: {{ total }}.</p>
+
+  {% if events %}
+    <table class="table">
+      <thead>
+        <tr><th>№</th><th>Назва</th><th>Дата</th><th>Місце</th><th>Місць</th></tr>
+      </thead>
+      <tbody>
+        {% for event in events %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ event.title }}<br><small>{{ event.description|truncatewords:8 }}</small></td>
+            <td>{{ event.date|date:"d.m.Y" }}</td>
+            <td>{{ event.place }}</td>
+            <td>{{ event.seats|default:"не обмежено" }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Список порожній.</p>
+  {% endif %}
+{% endblock %}

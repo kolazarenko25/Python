@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Заходи{% endblock %}
+
+{% block content %}
+  <h1>{{ page_title }}</h1>
+  <p>Знайдено заходів: {{ events | length }}.</p>
+
+  {% if events %}
+    <table class="table">
+      <thead>
+        <tr><th>№</th><th>Назва</th><th>Дата</th><th>Місце</th><th>Місць</th></tr>
+      </thead>
+      <tbody>
+        {% for event in events %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ event.title }}<br><small>{{ event.description | truncate(60) }}</small></td>
+            <td>{{ event.date.strftime('%d.%m.%Y') }}</td>
+            <td>{{ event.place }}</td>
+            {# арифметичний вираз і виклик методу всередині шаблону — на відміну від DTL #}
+            <td>{{ (event.seats - event.taken) if event.seats else "не обмежено" }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Список порожній.</p>
+  {% endif %}
+{% endblock %}

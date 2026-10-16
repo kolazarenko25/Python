@@ -1,0 +1,28 @@
+{% extends "events/base.html" %}
+
+{% block title %}Реєстрація{% endblock %}
+
+{% block content %}
+  <h1>Реєстрація на захід</h1>
+
+  {# novalidate вимикає HTML5-перевірку браузера, щоб було видно серверну валідацію #}
+  <form method="post" novalidate class="form">
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+      <div class="alert alert-error">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    {% for field in form %}
+      <div class="form-group{% if field.errors %} has-error{% endif %}">
+        {{ field.label_tag }}
+        {{ field }}
+        {% for error in field.errors %}
+          <p class="error">{{ error }}</p>
+        {% endfor %}
+      </div>
+    {% endfor %}
+
+    <button type="submit" class="button">Надіслати</button>
+  </form>
+{% endblock %}

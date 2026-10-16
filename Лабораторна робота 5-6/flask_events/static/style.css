@@ -1,0 +1,31 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, "Segoe UI", Arial, sans-serif; line-height: 1.5; color: #1f2933; background: #f5f7fa; }
+.container { max-width: 880px; margin: 0 auto; padding: 0 1rem; }
+.site-header { background: #243b53; }
+.nav { display: flex; gap: 1.25rem; align-items: center; padding-top: .8rem; padding-bottom: .8rem; }
+.nav a { color: #d9e2ec; text-decoration: none; }
+.nav a:hover { color: #fff; text-decoration: underline; }
+.nav .brand { font-weight: 700; color: #fff; margin-right: auto; }
+main { padding-top: 1.5rem; padding-bottom: 2rem; min-height: 70vh; }
+.site-footer { background: #243b53; color: #bcccdc; padding: 1rem 0; font-size: .9rem; }
+.cards { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.card { background: #fff; border: 1px solid #d9e2ec; border-radius: 8px; padding: 1rem; }
+.card h3 { margin-top: 0; }
+.meta { color: #627d98; font-size: .9rem; }
+.table { width: 100%; border-collapse: collapse; background: #fff; }
+.table th, .table td { border: 1px solid #d9e2ec; padding: .5rem .7rem; text-align: left; vertical-align: top; }
+.table th { background: #e4ebf2; }
+.button { display: inline-block; background: #2f6fed; color: #fff; padding: .55rem 1.1rem; border: 0; border-radius: 6px; text-decoration: none; font-size: 1rem; cursor: pointer; }
+.button:hover { background: #1f57c9; }
+.form { background: #fff; border: 1px solid #d9e2ec; border-radius: 8px; padding: 1.25rem; max-width: 560px; }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-weight: 600; margin-bottom: .25rem; }
+.form-control { width: 100%; padding: .5rem; border: 1px solid #9fb3c8; border-radius: 6px; font: inherit; }
+.has-error .form-control { border-color: #c62828; background: #fff5f5; }
+.error { color: #c62828; margin: .25rem 0 0; font-size: .9rem; }
+.alert { padding: .75rem 1rem; border-radius: 6px; margin-bottom: 1rem; }
+.alert-success { background: #e3f9e5; border: 1px solid #5ec26a; color: #1b5e20; }
+.alert-error { background: #ffe3e3; border: 1px solid #e57373; color: #8a1c1c; }
+.alert-warning { background: #fff8e1; border: 1px solid #ffca28; color: #7a5c00; }
+.flash-success { background: #e3f9e5; border: 1px solid #5ec26a; color: #1b5e20; }
+.flash-error { background: #ffe3e3; border: 1px solid #e57373; color: #8a1c1c; }

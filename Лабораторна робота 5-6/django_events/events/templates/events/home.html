@@ -1,0 +1,26 @@
+{% extends "events/base.html" %}
+
+{% block title %}Головна{% endblock %}
+
+{% block content %}
+  <h1>Ласкаво просимо: {{ site_title|upper }}</h1>
+  <p>Усього запланованих заходів: <strong>{{ events_count }}</strong>.</p>
+
+  {% if upcoming %}
+    <h2>Найближчі заходи ({{ upcoming|length }})</h2>
+    <ul class="cards">
+      {% for event in upcoming %}
+        <li class="card">
+          <h3>{{ event.title }}</h3>
+          <p class="meta">{{ event.date|date:"d.m.Y" }} · {{ event.place }}</p>
+          <p>{{ event.description|truncatewords:10 }}</p>
+          <p class="meta">Місць: {{ event.seats|default:"не обмежено" }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Найближчих заходів поки немає.</p>
+  {% endif %}
+
+  <p><a class="button" href="{% url 'events:register' %}">Зареєструватися</a></p>
+{% endblock %}

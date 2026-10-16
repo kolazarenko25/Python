@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% from "_macros.html" import render_field %}
+
+{% block title %}Реєстрація{% endblock %}
+
+{% block content %}
+  <h1>Реєстрація на захід</h1>
+
+  {# novalidate вимикає HTML5-перевірку браузера, щоб було видно серверну валідацію #}
+  <form method="post" novalidate class="form">
+    {{ form.hidden_tag() }}   {# CSRF-токен #}
+
+    {{ render_field(form.name) }}
+    {{ render_field(form.email) }}
+    {{ render_field(form.event_type) }}
+    {{ render_field(form.message) }}
+
+    <button type="submit" class="button">Надіслати</button>
+  </form>
+{% endblock %}

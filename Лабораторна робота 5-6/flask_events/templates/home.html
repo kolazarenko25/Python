@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% from "_macros.html" import event_card %}
+
+{% block title %}Головна{% endblock %}
+
+{% block content %}
+  <h1>Ласкаво просимо: {{ site_title | upper }}</h1>
+  <p>Усього запланованих заходів: <strong>{{ events_count }}</strong>.</p>
+
+  {% if upcoming %}
+    <h2>Найближчі заходи ({{ upcoming | length }})</h2>
+    <ul class="cards">
+      {% for event in upcoming %}
+        {{ event_card(event) }}
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Найближчих заходів поки немає.</p>
+  {% endif %}
+
+  <p><a class="button" href="{{ url_for('register') }}">Зареєструватися</a></p>
+{% endblock %}

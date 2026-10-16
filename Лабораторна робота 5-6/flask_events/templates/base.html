@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Головна{% endblock %} — Реєстрація на події</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav">
+      <a class="brand" href="{{ url_for('home') }}">Події</a>
+      <a href="{{ url_for('home') }}">Головна</a>
+      <a href="{{ url_for('event_list') }}">Заходи</a>
+      <a href="{{ url_for('register') }}">Реєстрація</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="messages">
+          {% for category, message in messages %}
+            <div class="alert flash-{{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© {{ current_year }} Реєстрація на події · Flask</div>
+  </footer>
+</body>
+</html>
