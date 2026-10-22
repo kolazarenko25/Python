@@ -1,0 +1,15 @@
+{% extends "library/base.html" %}
+{% block content %}
+<h1>Каталог книг</h1>
+<ul>
+  {% for book in books %}
+  <li>
+    <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> —
+    {{ book.author.name }}, {{ book.year }}
+    [{% for genre in book.genres.all %}{{ genre.name }}{% if not forloop.last %}, {% endif %}{% endfor %}]
+  </li>
+  {% empty %}
+  <li>Книг поки немає.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

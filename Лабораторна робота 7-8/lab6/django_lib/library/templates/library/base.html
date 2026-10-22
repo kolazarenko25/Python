@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Інтернет-бібліотека{% endblock %}</title>
+</head>
+<body>
+  <nav>
+    <a href="{% url 'book_list' %}">Каталог</a> |
+    <a href="{% url 'loan_list' %}">Видачі</a>
+  </nav>
+  <hr>
+  {% block content %}{% endblock %}
+</body>
+</html>

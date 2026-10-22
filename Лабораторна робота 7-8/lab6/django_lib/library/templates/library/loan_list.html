@@ -1,0 +1,17 @@
+{% extends "library/base.html" %}
+{% block content %}
+<h1>Видачі книг</h1>
+<table border="1" cellpadding="4">
+  <tr><th>Читач</th><th>Книга</th><th>Повернути до</th><th>Повернено</th></tr>
+  {% for loan in loans %}
+  <tr>
+    <td>{{ loan.reader.full_name }}</td>
+    <td>{{ loan.book.title }}</td>
+    <td>{{ loan.due_date|date:"d.m.Y" }}</td>
+    <td>{{ loan.returned_at|date:"d.m.Y"|default:"—" }}</td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="4">Видач немає.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

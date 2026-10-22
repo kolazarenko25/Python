@@ -1,0 +1,10 @@
+{% extends "library/base.html" %}
+{% block title %}{{ book.title }}{% endblock %}
+{% block content %}
+<h1>{{ book.title }}</h1>
+<p>Автор: {{ book.author.name }}</p>
+<p>ISBN: {{ book.isbn }}</p>
+<p>Рік видання: {{ book.year }}</p>
+<p>Примірників: {{ book.copies_total }}</p>
+<p><a href="{% url 'book_list' %}">← До каталогу</a></p>
+{% endblock %}
