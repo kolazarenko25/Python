@@ -1,0 +1,101 @@
+{
+  "authors": [
+    {
+      "author_id": 1,
+      "name": "Тарас Шевченко",
+      "birth_year": 1814,
+      "country": "Україна"
+    },
+    {
+      "author_id": 2,
+      "name": "Леся Українка",
+      "birth_year": 1871,
+      "country": "Україна"
+    },
+    {
+      "author_id": 3,
+      "name": "Іван Франко",
+      "birth_year": 1856,
+      "country": "Україна"
+    },
+    {
+      "author_id": 4,
+      "name": "Михайло Коцюбинський",
+      "birth_year": 1864,
+      "country": "Україна"
+    }
+  ],
+  "books": [
+    {
+      "book_id": 1,
+      "title": "Кобзар",
+      "author_id": 1,
+      "year": 1840,
+      "isbn": "9789660000018",
+      "copies": 3,
+      "available_copies": 2
+    },
+    {
+      "book_id": 2,
+      "title": "Лісова пісня",
+      "author_id": 2,
+      "year": 1911,
+      "isbn": "9789660000025",
+      "copies": 2,
+      "available_copies": 1
+    },
+    {
+      "book_id": 3,
+      "title": "Захар Беркут",
+      "author_id": 3,
+      "year": 1883,
+      "isbn": "9789660000032",
+      "copies": 2,
+      "available_copies": 1
+    },
+    {
+      "book_id": 4,
+      "title": "Тіні забутих предків",
+      "author_id": 4,
+      "year": 1911,
+      "isbn": "9789660000049",
+      "copies": 1,
+      "available_copies": 0
+    },
+    {
+      "book_id": 5,
+      "title": "Мойсей",
+      "author_id": 3,
+      "year": 1905,
+      "isbn": "9789660000056",
+      "copies": 1,
+      "available_copies": 1
+    }
+  ],
+  "readers": [
+    {
+      "reader_id": 1,
+      "name": "Олена Коваль",
+      "email": "olena@example.com",
+      "borrowed": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "reader_id": 2,
+      "name": "Андрій Мельник",
+      "email": "andriy@example.com",
+      "borrowed": []
+    },
+    {
+      "reader_id": 3,
+      "name": "Марія Бойко",
+      "email": "maria@example.com",
+      "borrowed": [
+        4
+      ]
+    }
+  ]
+}
